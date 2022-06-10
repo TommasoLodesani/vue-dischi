@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <DiscList/>
-    
+    <MyHeader/>
+
+   
+   <main>
+      <DiscList/>
+
+    </main>
     
   </div>
 </template>
@@ -9,12 +14,15 @@
 <script>
 
 import DiscList from './components/DiscList.vue'
+import MyHeader from './components/MyHeader.vue'
+
 
 export default {
   name: 'App',
   components: {
-    DiscList
-  }
+    DiscList,
+    MyHeader,
+}
 }
 </script>
 
@@ -24,12 +32,17 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  // color: #2c3e50;
+  // margin-top: 60px;
+
+  main{
+  background-color: #1e2d3b;
+}
 }
 </style>
