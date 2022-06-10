@@ -1,19 +1,21 @@
 <template>
-  <div>
+  <section>
+    <MyDisc v-for="(item,index) in listaDischi.response" :key="index"
+    :discObject="item"/>
    
-  </div>
+  </section>
 </template>
 
 <script>
 
 import axios from "axios";
+import MyDisc from "./MyDisc.vue";
 
 export default {
   name: 'DiscList',
   components:{
-
-
-  },
+    MyDisc
+},
   data(){
     return{
         apiUrl : "https://flynn.boolean.careers/exercises/api/array/music",
