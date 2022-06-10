@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="disc-container">
     <MyDisc v-for="(item,index) in listaDischi.response" :key="index"
     :discObject="item"/>
    
@@ -43,5 +43,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
+#disc-container{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
 </style>
