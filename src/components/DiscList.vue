@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <MySelect @swichSelect="searchGenre"/>
+    <MySelect @myselect="searchGenre"/>
 
     <section id="disc-container">
       <MyDisc v-for="(item,index) in filterListaDischi" :key="index"
