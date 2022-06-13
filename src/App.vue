@@ -2,7 +2,6 @@
   <div id="app">
     <MyHeader/>
 
-   
    <main>
       <DiscList/>
 

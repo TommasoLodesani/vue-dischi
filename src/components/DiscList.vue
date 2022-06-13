@@ -1,25 +1,33 @@
 <template>
-  <section id="disc-container">
-    <MyDisc v-for="(item,index) in listaDischi.response" :key="index"
-    :discObject="item"/>
-   
-  </section>
+  <div>
+
+    <MySelect @myselect="searchGenre"/>
+
+    <section id="disc-container">
+      <MyDisc v-for="(item,index) in listaDischi.response" :key="index"
+      :discObject="item"/>
+     
+    </section>
+  </div>
 </template>
 
 <script>
 
 import axios from "axios";
 import MyDisc from "./MyDisc.vue";
+import MySelect from "./MySelect.vue";
 
 export default {
   name: 'DiscList',
   components:{
-    MyDisc
+    MyDisc,
+    MySelect
 },
   data(){
     return{
         apiUrl : "https://flynn.boolean.careers/exercises/api/array/music",
-        listaDischi :[]
+        listaDischi :[],
+        userSelect: "",
     }
   },
   created(){
@@ -35,7 +43,14 @@ export default {
         
     })
 
+    },
+    searchGenre(selectUser){
+      this.userSelect = selectUser;
+      console.log(userSelect);
+
+
     }
+
   }
   
 }
