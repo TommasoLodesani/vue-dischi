@@ -4,7 +4,7 @@
     <MySelect @myselect="searchGenre"/>
 
     <section id="disc-container">
-      <MyDisc v-for="(item,index) in listaDischi.response" :key="index"
+      <MyDisc v-for="(item,index) in filterListaDischi.response" :key="index"
       :discObject="item"/>
      
     </section>
@@ -48,7 +48,15 @@ export default {
       this.userSelect = selectUser;
       console.log(userSelect);
 
+    },
+    computed:{
+      filterListaDischi(){
+        return this.listaDischi;
 
+        return this.listaDischi.filter(item =>{
+          return item.response.genre
+        })
+      }
     }
 
   }
