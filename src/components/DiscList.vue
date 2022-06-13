@@ -4,7 +4,7 @@
     <MySelect @swichSelect="searchGenre"/>
 
     <section id="disc-container">
-      <MyDisc v-for="(item,index) in filterListaDischi.response" :key="index"
+      <MyDisc v-for="(item,index) in filterListaDischi" :key="index"
       :discObject="item"/>
      
     </section>
@@ -39,7 +39,8 @@ export default {
     getDischi(){
         axios.get(this.apiUrl)
         .then(result =>{
-        this.listaDischi = result.data
+        
+        this.listaDischi = result.data.response
         
     })
 
@@ -54,7 +55,7 @@ export default {
   computed:{
       filterListaDischi(){
         // return this.listaDischi;
-
+       
         return this.listaDischi.filter(item =>{
           return item.genre.includes(this.userSelect)
         });

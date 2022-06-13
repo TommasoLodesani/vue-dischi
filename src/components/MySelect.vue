@@ -24,6 +24,7 @@ export default {
     swichSelect(event){
         this.inputSelect = event.target.value;
         this.$emit('myselect',this.inputSelect)
+        console.log(this.inputSelect);
     }
   }
   
