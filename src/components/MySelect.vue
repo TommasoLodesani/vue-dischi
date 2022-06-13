@@ -2,11 +2,12 @@
     <div>
 
         <select name="" id="" v-model="inputSelect" 
-        @change="$emit('myselect',inputSelect)">
-            <option value="">Rock</option>
-            <option value="">Pop</option>
-            <option value="">Jazz</option>
-            <option value="">Metal</option>
+        @change="swichSelect($event)">
+            <option disabled value="">Scegli un genere</option>
+            <option value="Rock">Rock</option>
+            <option value="Pop">Pop</option>
+            <option value="Jazz">Jazz</option>
+            <option value="Metal">Metal</option>
         </select>
     </div>
 </template>
@@ -17,6 +18,12 @@ export default {
   data(){
     return{
         inputSelect: ""
+    }
+  },
+  methods: {
+    swichSelect(event){
+        this.inputSelect = event.target.value;
+        this.$emit('myselect',this.inputSelect)
     }
   }
   

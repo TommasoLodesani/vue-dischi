@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <MySelect @myselect="searchGenre"/>
+    <MySelect @swichSelect="searchGenre"/>
 
     <section id="disc-container">
       <MyDisc v-for="(item,index) in filterListaDischi.response" :key="index"
@@ -46,20 +46,20 @@ export default {
     },
     searchGenre(selectUser){
       this.userSelect = selectUser;
-      console.log(userSelect);
+      console.log(this.userSelect);
 
     },
-    computed:{
+    
+  },
+  computed:{
       filterListaDischi(){
-        return this.listaDischi;
+        // return this.listaDischi;
 
         return this.listaDischi.filter(item =>{
-          return item.response.genre
-        })
+          return item.genre.includes(this.userSelect)
+        });
       }
     }
-
-  }
   
 }
 </script>
